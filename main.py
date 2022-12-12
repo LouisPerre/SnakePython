@@ -13,8 +13,8 @@ FramesPerSecond = pygame.time.Clock()
 # Create a surface to put on top of our display surface
 test_surface = pygame.Surface((100, 200))
 
-# Create a rectangle to put on top of our display surface it takes x, y, w, h
-test_rectangle = pygame.Rect(100, 200, 100, 100)
+# Draw a rectangle around my existing surface allowing me to move its origin point
+test_rectangle = test_surface.get_rect(center=(200, 250))
 
 while True:
     # Get all event that are happening in the game
@@ -27,11 +27,8 @@ while True:
     # Apply some color on the display surface
     screen.fill((175, 215, 70))
 
-    # Draw the rectangle on the screen by giving it the surface, the color and the rectangle
-    pygame.draw.rect(screen, pygame.Color('red'), test_rectangle)
-
-    # Apply our surface on top on the display surface at a position, relative to the top left corner, of 200 pixels and 250 pixels
-    screen.blit(test_surface, (200, 250))
+    # Apply our surface on top on the display surface at a position directed by the rectangle created above
+    screen.blit(test_surface, test_rectangle)
 
     # Draw all our elements
     pygame.display.update()
