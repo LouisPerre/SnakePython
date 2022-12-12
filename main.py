@@ -27,7 +27,7 @@ while True:
     # Apply some color on the display surface
     screen.fill((175, 215, 70))
 
-    # Apply our surface on top on the display surface at a position directed by the rectangle created above
+    # Position my rectangle right in the center of the screen and then place the surface on that rectangle
     screen.blit(test_surface, test_rectangle)
 
     # Draw all our elements
