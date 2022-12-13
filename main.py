@@ -1,25 +1,15 @@
 import sys
 import pygame
-import random
 from pygame.math import Vector2
 from MainClass import Main
-
-pygame.mixer.pre_init(44100, -16, 2, 512)
-# Init all pygame component
-pygame.init()
+from GameClass import Game
 
 # Define a certain amount and size of cell to simulate a grid
 cell_size = 40
 cell_number = 20
 
-
-# Define the display surface
-screen = pygame.display.set_mode((cell_number*cell_size, cell_number*cell_size))
-
-# Run a max speed clock
-FramesPerSecond = pygame.time.Clock()
-
-main_game = Main(cell_number, cell_size, screen)
+initGame = Game(cell_number, cell_size)
+main_game = Main(cell_number, cell_size, initGame.screen)
 
 # Create a new event to trigger the moving function
 SCREEN_UPDATE = pygame.USEREVENT
@@ -55,13 +45,10 @@ while True:
                     main_game.snake.direction = Vector2(-1, 0)
 
     # Apply some color on the display surface
-    screen.fill((175, 215, 70))
+    initGame.screen_color()
 
     # Add the snake and fruit on the screen
     main_game.draw_elements()
 
     # Draw all our elements
-    pygame.display.update()
-
-    # Limit the speed of execution to 60 frames per second
-    FramesPerSecond.tick(60)
+    initGame.screen_update()
