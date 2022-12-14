@@ -5,11 +5,11 @@ from MainClass import Main
 from GameClass import Game
 
 # Define a certain amount and size of cell to simulate a grid
-cell_size = 40
-cell_number = 20
+grid_size = 40
+grid_number = 20
 
-initGame = Game(cell_number, cell_size)
-main_game = Main(cell_number, cell_size, initGame.screen)
+initGame = Game(grid_number, grid_size)
+main_game = Main(grid_number, grid_size, initGame.screen)
 
 # Create a new event to trigger the moving function
 SCREEN_UPDATE = pygame.USEREVENT
