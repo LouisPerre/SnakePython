@@ -68,10 +68,8 @@ class Score:
             if index == 0:
                 screen.blit(scored[0], scored[1])
             elif index == 1:
-                print(index - 1)
                 screen.blit(scored[0], scored[0].get_rect(midleft=(scoredStored[index - 1][1].right, scoredStored[index - 1][1].centery)))
             elif index == 2:
-                print(index - 1)
                 screen.blit(scored[0], scored[0].get_rect(midtop=(scoredStored[index - 1][1].right, scoredStored[index - 1][1].centery + 30)))
         pygame.display.update()
 
